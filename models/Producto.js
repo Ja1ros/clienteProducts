@@ -6,6 +6,10 @@ const ProductoSchema = mongoose.Schema({
         required: true
     },
     codigo: {
+        type: String,
+        required: true
+    },
+    peso: {
         type: Number,
         required: true
     },

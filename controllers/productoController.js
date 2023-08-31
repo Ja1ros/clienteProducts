@@ -35,7 +35,7 @@ exports.obtenerProductos = async (req, res) => {
 exports.actualizarProducto = async (req, res) => {
 
     try {
-        const { nombre, codigo,precio } = req.body;
+        const { nombre, codigo, peso, precio } = req.body;
         let producto = await Producto.findById(req.params.id);
 
         if(!producto) {
@@ -44,6 +44,7 @@ exports.actualizarProducto = async (req, res) => {
 
         producto.nombre = nombre;
         producto.codigo = codigo;
+        producto.peso   = peso;
         producto.precio = precio;
 
         producto = await Producto.findOneAndUpdate({ _id: req.params.id },producto, { new: true} )
